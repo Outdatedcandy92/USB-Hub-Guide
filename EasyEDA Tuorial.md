@@ -8,17 +8,17 @@ To get started head on over to [pro.easyeda.com](https://pro.easyeda.com/) and c
 After you successfully login click on the `Use Online` button or just head over to [pro.easyeda.com/editor](https://pro.easyeda.com/editor). When the editor opens, you will be taken to the main dashboard which should look something like this.
 
 
-![[attachments/Pasted image 20260214134758.png]]
+![Pasted image 20260214134758](attachments/Pasted%20image%2020260214134758.png)
 
 
 To create a project you go `File -> New -> Project` or you can just use the `Shift + N` shortcut. A new project dialog will pop up and here you can name your project and add a little description if you want.
 
-![[attachments/Pasted image 20260214134815.png]]
+![img](attachments/Pasted image 20260214134815.png)
 
 
 After you save it, the editor will automatically open that project and this is what it should look like.
 
-![[attachments/Pasted image 20260214134843.png]]
+![img](attachments/Pasted image 20260214134843.png)
 
 On the left sidebar you'll see your project name and then a `Schematic1` and `PCB` under it, these are the files which we will be working on and editing to create our USB Hub!
 
@@ -28,7 +28,7 @@ Before we jump into making our USB Hub, I'll give you a quick rundown of the Sch
 
 To open the schematic editor simply double click the `Schematic1` that's on the left sidebar. It should open the schematic editor which would look something like this:
 
-![[attachments/20260214-1847-11.9442387.gif]]
+![img](attachments/20260214-1847-11.9442387.gif)
 
 The schematic editor is where you design the circuit for your board. It visually represents how everything connects, using symbols instead of physical components. This is where you define the logic of your design. If someone understands your schematic, they understand how your circuit works, even without seeing the actual PCB.
 
@@ -37,7 +37,7 @@ The schematic editor is where you design the circuit for your board. It visually
 
 At the top of the screen, you’ll see the toolbar. This is where all the tools you’ll need for building your schematic live. You’ll find options to add components, draw wires, place resistors, add net flags, and more.
 
-![[attachments/20260214-1849-21.0176422.gif]]
+![img](attachments/20260214-1849-21.0176422.gif)
 
 It might look a little overwhelming at first. That’s totally normal. Let’s quickly go over the most important tools so you know what’s what. You’ll get more hands on practice with them in the next tutorial.
 
@@ -57,20 +57,20 @@ Think of this as a cleaner way to connect things. Instead of drawing a long wire
 
 Now on the right side you have the property sidebar, it basically shows you the property of whatever component is selected, by default if nothing is selected it shows you the properties of the page.
 
-![[attachments/Pasted image 20260214134939.png]]
+![img](attachments/Pasted image 20260214134939.png)
 
 # PCB Editor
 
 To open the PCB editor, simply click the `PCB1` on the left sidebar. That opens the PCB editor which looks something like this.
 
-![[attachments/20260214-1850-03.7155826.gif]]
+![img](attachments/20260214-1850-03.7155826.gif)
 
 The PCB editor is where your design becomes real. This is where you define how your board will physically look and connect in real life. You’ll set the board shape, arrange components on the layout, and draw copper traces that connect everything together.
 
 	Unlike the schematic editor, which focuses on logic, the PCB editor is all about physical placement and routing. You’re thinking about spacing, trace paths, and how everything fits on the board.
 
 
-![[attachments/20260214-1850-52.5533107.gif]]
+![img](attachments/20260214-1850-52.5533107.gif)
 
 Just like the schematic editor, the PCB editor also has a toolbar at the top with the tools you’ll use most often. Don’t worry if they look unfamiliar at first. Here’s a quick and simple rundown of the first five tools, without getting too technical:
 
@@ -92,7 +92,7 @@ Similar to a copper area, but more general purpose. It fills a defined space wit
 
 On the right sidebar, you’ll see a long list of layers. At first glance, it can look a little intimidating. There are a lot of them, and the names might not immediately make sense.
 
-![[attachments/Pasted image 20260214135110.png]]
+![img](attachments/Pasted image 20260214135110.png)
 
 But don’t worry. For most beginner boards, you only really need to focus on five layers: the **Top Layer**, **Bottom Layer**, **Top Silkscreen**, **Bottom Silkscreen**, and the **Board Outline Layer**. And which you'll learn more about in the follow section which talks about the anatomy of a PCB
 
@@ -106,7 +106,7 @@ On top of the solder mask, there is the silkscreen layer. This is where text and
 
 Here’s a quick illustration to help you picture how these layers are stacked together:
 
-![[attachments/Pasted image 20260214135131.png]]
+![img](attachments/Pasted image 20260214135131.png)
 
 ---
 
