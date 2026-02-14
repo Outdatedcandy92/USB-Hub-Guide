@@ -1,1 +1,2 @@
+attachments/**/*.gif filter=lfs diff=lfs merge=lfs -text
 attachments/*.gif filter=lfs diff=lfs merge=lfs -text
