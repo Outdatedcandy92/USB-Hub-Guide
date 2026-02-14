@@ -8,7 +8,7 @@ For this USB hub, we’re going to use the **SL2.1S** from **CoreChips**. This t
 
 Since we’re having the board assembled by JLCPCB, the part number we’ll need is `C2684433`.
 
-![img](attachments/Pasted image 20260214135310.png)
+![img](attachments/Pasted%20image%2020260214135310.png)
 
 Let’s add the chip to our schematic.
 
@@ -44,7 +44,7 @@ Schematics are typically read from left to right, kind of like a flow of informa
 
 I’ll move my upstream USB Type C port to the top left, place the hub IC in the center, and arrange all the downstream ports along the right side. Now the data flow is visually clear: computer → hub chip → connected devices.
 
-![img](attachments/Pasted image 20260214135735.png)
+![img](attachments/Pasted%20image%2020260214135735.png)
 
 For parts like USB Type C and Type A connectors, the symbol already makes it obvious what they are. We don’t need huge manufacturer part numbers cluttering up the page and making the schematic harder to read.
 
@@ -165,7 +165,7 @@ Scroll down to the **pin definition table**, this is the map we’ll use to figu
 
 These pins make sure the IC gets the right voltages it needs to run.
 
-![img](attachments/Pasted image 20260214141502.png)
+![img](attachments/Pasted%20image%2020260214141502.png)
 
 Let’s connect the power pins on the IC:
 
@@ -183,7 +183,7 @@ Every chip needs precise timing to communicate and operate correctly, and that t
 
 If we scroll down in the datasheet, it specifies a **12 MHz crystal oscillator**. That means we need a crystal with a **resonant frequency of 12 MHz** to hook up to XIN and XOUT.
 
-![img](attachments/Pasted image 20260214141709.png)
+![img](attachments/Pasted%20image%2020260214141709.png)
 
 Normally, you’d add a crystal here, but this particular chip is known to work perfectly fine using its internal clock. That means we can skip adding the external crystal and let the IC handle timing on its own.
 
@@ -196,14 +196,14 @@ To keep the schematic clean:
 
 This clearly shows that the crystal isn’t used, while keeping your schematic neat and correct.
 
-![img](attachments/Pasted image 20260214141742.png)
+![img](attachments/Pasted%20image%2020260214141742.png)
 
 
 Looking back at the pin definition table, you’ll notice **UDM** and **UDP**, these are the USB D– and D+ signals from the **upstream port**, the one that connects to the host computer.
 
 In other words, these pins are how your hub talks to the computer. Everything coming from or going to the host passes through **UDM** and **UDP**, so these are the signals we’ll connect to our net labels from the upstream USB-C port.
 
-![img](attachments/Pasted image 20260214141932.png)
+![img](attachments/Pasted%20image%2020260214141932.png)
 
 Now it’s time to hook up the data lines from our upstream USB-C connector.
 
@@ -217,11 +217,11 @@ Finally, let’s connect the **downstream data ports**.
 
 For each of the DPx/DMx pins on the IC, create **net labels** just like we did for the upstream port.
 
-![img](attachments/Pasted image 20260214142144.png)
+![img](attachments/Pasted%20image%2020260214142144.png)
 
 Once that’s done, connect each net label to the data pins of one of your four downstream USB connectors. Remember: **each data pair goes to only one USB port!** don’t share a pair between multiple connectors.
 
-![img](attachments/Pasted image 20260214142305.png)
+![img](attachments/Pasted%20image%2020260214142305.png)
 
 
 
@@ -239,7 +239,7 @@ So for each downstream USB-C port, place a **5.1 kΩ resistor** on the CC1 and
 
 If you’ve followed all these steps, your schematic should now look clean and complete, with all power, data, and control signals properly connected.
 
-![img](attachments/Pasted image 20260214142839.png)
+![img](attachments/Pasted%20image%2020260214142839.png)
 
 
 We’re almost done! The last little piece to add is **capacitors**, specifically **decoupling capacitors**.
@@ -248,7 +248,7 @@ Capacitors do two main things: they **store energy** and they **let high-frequen
 
 For this project, place **1 µF capacitors** between **VBUS** (or VCC) and **GND** on each USB connector. This ensures each port gets clean, steady power and keeps the hub running reliably.
 
-![img](attachments/Pasted image 20260214142859.png)
+![img](attachments/Pasted%20image%2020260214142859.png)
 
 
 ![img](attachments/20260214-1930-04.0631176.gif)
@@ -257,17 +257,17 @@ Basically, each decoupling capacitor will have **one end connected to the power 
 
 A little schematic etiquette tip: **power flags should point up** and **ground flags should point down**. To keep things tidy, place your decoupling capacitors following this convention, power end toward the +5 V flag and ground end toward the GND flag. This makes the schematic easier to read and visually consistent.
 
-![img](attachments/Pasted image 20260214143138.png)
+![img](attachments/Pasted%20image%2020260214143138.png)
 
 For the IC’s internal supply pins, **VDD33** (3.3 V) and **VDD18** (1.8 V), we’ll add **two capacitors each**: a **1 µF** and a **100 nF**. Both act as decoupling capacitors, but the smaller **100 nF capacitor reacts faster** to sudden voltage spikes, making it great for filtering high-frequency noise.
 
 We’ll do the same thing for the **VDD5** pin: a 1 µF and a 100 nF capacitor to ground. This keeps all the IC’s power rails clean and stable, ensuring reliable operation of the hub.
 
-![img](attachments/Pasted image 20260214143235.png)
+![img](attachments/Pasted%20image%2020260214143235.png)
 
 Here’s roughly what your completed schematic should look like at the end: all power rails, ground connections, data lines, pull-up/pull-down resistors, and decoupling capacitors in place, with clean left-to-right flow from the upstream port through the IC to the downstream ports. Everything should be neatly labeled and easy to read, ready for the PCB stage.
 
-![img](attachments/Pasted image 20260214143300.png)
+![img](attachments/Pasted%20image%2020260214143300.png)
 
 
 And just like that, **schematics complete!** :D

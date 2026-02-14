@@ -8,17 +8,17 @@ To get started head on over to [pro.easyeda.com](https://pro.easyeda.com/) and c
 After you successfully login click on the `Use Online` button or just head over to [pro.easyeda.com/editor](https://pro.easyeda.com/editor). When the editor opens, you will be taken to the main dashboard which should look something like this.
 
 
-![Pasted image 20260214134758](attachments/Pasted%20image%2020260214134758.png)
+![Pasted%20image%2020260214134758](attachments/Pasted%20image%2020260214134758.png)
 
 
 To create a project you go `File -> New -> Project` or you can just use the `Shift + N` shortcut. A new project dialog will pop up and here you can name your project and add a little description if you want.
 
-![img](attachments/Pasted image 20260214134815.png)
+![img](attachments/Pasted%20image%2020260214134815.png)
 
 
 After you save it, the editor will automatically open that project and this is what it should look like.
 
-![img](attachments/Pasted image 20260214134843.png)
+![img](attachments/Pasted%20image%2020260214134843.png)
 
 On the left sidebar you'll see your project name and then a `Schematic1` and `PCB` under it, these are the files which we will be working on and editing to create our USB Hub!
 
@@ -57,7 +57,7 @@ Think of this as a cleaner way to connect things. Instead of drawing a long wire
 
 Now on the right side you have the property sidebar, it basically shows you the property of whatever component is selected, by default if nothing is selected it shows you the properties of the page.
 
-![img](attachments/Pasted image 20260214134939.png)
+![img](attachments/Pasted%20image%2020260214134939.png)
 
 # PCB Editor
 
@@ -92,7 +92,7 @@ Similar to a copper area, but more general purpose. It fills a defined space wit
 
 On the right sidebar, you’ll see a long list of layers. At first glance, it can look a little intimidating. There are a lot of them, and the names might not immediately make sense.
 
-![img](attachments/Pasted image 20260214135110.png)
+![img](attachments/Pasted%20image%2020260214135110.png)
 
 But don’t worry. For most beginner boards, you only really need to focus on five layers: the **Top Layer**, **Bottom Layer**, **Top Silkscreen**, **Bottom Silkscreen**, and the **Board Outline Layer**. And which you'll learn more about in the follow section which talks about the anatomy of a PCB
 
@@ -106,7 +106,7 @@ On top of the solder mask, there is the silkscreen layer. This is where text and
 
 Here’s a quick illustration to help you picture how these layers are stacked together:
 
-![img](attachments/Pasted image 20260214135131.png)
+![img](attachments/Pasted%20image%2020260214135131.png)
 
 ---
 
