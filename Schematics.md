@@ -40,13 +40,13 @@ For the Type A connector, I’m using `10.0 QHHTZB6.3` with part number `C668591
 
 Go ahead and place your connectors based on the configuration you want. Once they’re on the schematic, you’ll clearly see the structure of your 1 in, 4 out USB hub coming together.
 
-![[20260214-0439-37.8774618.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fd1e01254_image.gif)
 
 Schematics are typically read from left to right, kind of like a flow of information. Inputs on the left, processing in the middle, outputs on the right. Laying things out this way makes your design much easier to understand at a glance.
 
 I’ll move my upstream USB Type C port to the top left, place the hub IC in the center, and arrange all the downstream ports along the right side. Now the data flow is visually clear: computer → hub chip → connected devices.
 
-![[Pasted image 20260213233507.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F6713c43d_image.png)
 
 For parts like USB Type C and Type A connectors, the symbol already makes it obvious what they are. We don’t need huge manufacturer part numbers cluttering up the page and making the schematic harder to read.
 
@@ -54,7 +54,7 @@ To clean things up, hold `Ctrl` and select all of your USB connectors. Then, in 
 
 The goal here is readability. A clean schematic is much easier to debug, share, and come back to later without giving yourself a headache.
 
-![[20260214-0441-19.6961233.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F452126a0_image.gif)
 
 There, its so much cleaner now!
 
@@ -91,25 +91,25 @@ To start, we’ll tie all the **VBUS** pins together using a **+5 V power flag
 
 Now all your VBUS pins are connected to +5 V, giving your hub a proper power supply to work with.
 
-![[20260214-0444-05.6524212.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F618b988e_image.gif)
 
 Next up is **ground**. Just like we did with VBUS, we’ll connect all the **GND** pins using ground flags.
 
 Be careful to keep the wires and flags neat. Don’t let them overlap or cross unnecessarily. A messy tangle makes the schematic hard to read and can confuse anyone trying to follow your design later. Clean, spaced-out connections keep everything understandable and professional looking.
 
-![[20260214-0446-11.8633559.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fb2a4c243_image.gif)
 
 Now we’ll connect the **SH (shield)** pins to ground.
 
 Select the **Wire** tool and draw lines from each SH pin to a GND flag. This grounds the metal shielding on the connector, which helps reduce interference and keeps your hub electrically stable. 
 
-![[20260214-0447-20.1971953.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fc20b4c6c_image.gif)
 
 Next up are the **SBU1 and SBU2** pins. For our hub, we won’t be using them, but leaving pins completely floating is generally bad practice.
 
 To handle this, we’ll use a **No Connect (NC) flag**. Select it from the top toolbar and place it on both SBU1 and SBU2 pins. This clearly signals that these pins are intentionally unconnected, keeping your schematic clean and professional.
 
-![[20260214-0452-26.1923745.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fcadc39ab_image.gif)
 
 
 Now let’s handle the **CC1 and CC2** pins. These pins basically tell the host “hey, I’m a downstream port and I need some current.” To do this, we use **5.1 kΩ resistors** connected to ground, these are called **pull-down resistors** because they “pull” the voltage down to 0 V.
@@ -127,7 +127,7 @@ Here’s how to add them:
 
 And just like that, your hub politely asks for power whenever a device is plugged in.
 
-![[20260214-0455-43.3326682.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F7df10987_image.gif)
 
 
 Now it’s time to handle the **data pins**. These need to connect to the **SL2.1S** chip, but since the IC is a bit far away on the schematic, we don’t want a spaghetti mess of wires. This is where **net labels** come in, they let you connect signals “virtually.” Any pins with the same net label are electrically connected, no matter where they are on the schematic.
@@ -143,14 +143,14 @@ Here’s what we’ll do:
 
 Make sure the labeling is correct: **DP** goes on both DP1 and DP2, and **DN** goes on both DN1 and DN2. Once that’s done, these signals can be “connected” to the hub IC cleanly, without any messy wires crossing the schematic.
 
-![[20260214-1453-25.7395350.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F5a16178e_image.gif)
 
 
 Next, let’s tackle the **SL2.1S** itself. To figure out how to wire it up, the datasheet is your best friend, it tells you exactly what each pin does and how it should connect.
 
 A quick way to get there is to click on the IC symbol, then in the **Properties** tab click on the device link. This will take you to its LCSC page, where you can find and open the official datasheet. Once you have it open, you’ll be able to see all the pin assignments and recommended connections for your USB hub.
 
-![[20260214-1455-45.9651372.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F26a030e7_image.gif)
 
 The original datasheet is partly in Chinese and partly in English, so if you can’t read it, a quick trick is to download the PDF and use Google Translate to get a full English version. For convenience, here’s a translated version you can use: [link].
 
@@ -167,7 +167,7 @@ Scroll down to the **pin definition table**, this is the map we’ll use to figu
 
 These pins make sure the IC gets the right voltages it needs to run.
 
-![[Pasted image 20260214095736.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fb9a47280_image.png)
 
 Let’s connect the power pins on the IC:
 
@@ -177,7 +177,7 @@ Let’s connect the power pins on the IC:
 
 The **VDD33** (3.3 V) and **VDD18** (1.8 V) pins are generated internally by the IC, so for now we can leave them unconnected. They’ll take care of themselves once the chip powers up.
 
-![[20260214-1500-20.0524318.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F84732273_image.gif)
 
 Next, let’s look at the **XOUT** and **XIN** pins, they’re for connecting an external crystal.
 
@@ -185,7 +185,7 @@ Every chip needs precise timing to communicate and operate correctly, and that t
 
 If we scroll down in the datasheet, it specifies a **12 MHz crystal oscillator**. That means we need a crystal with a **resonant frequency of 12 MHz** to hook up to XIN and XOUT.
 
-![[Pasted image 20260214100217.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F7a3fc4b2_image.png)
 
 Normally, you’d add a crystal here, but this particular chip is known to work perfectly fine using its internal clock. That means we can skip adding the external crystal and let the IC handle timing on its own.
 
@@ -198,14 +198,14 @@ To keep the schematic clean:
 
 This clearly shows that the crystal isn’t used, while keeping your schematic neat and correct.
 
-![[Pasted image 20260214100120.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fb6026e3d_image.png)
 
 
 Looking back at the pin definition table, you’ll notice **UDM** and **UDP**, these are the USB D– and D+ signals from the **upstream port**, the one that connects to the host computer.
 
 In other words, these pins are how your hub talks to the computer. Everything coming from or going to the host passes through **UDM** and **UDP**, so these are the signals we’ll connect to our net labels from the upstream USB-C port.
 
-![[Pasted image 20260214100239.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F4977c89d_image.png)
 
 Now it’s time to hook up the data lines from our upstream USB-C connector.
 
@@ -213,17 +213,17 @@ You’ll notice a small naming difference: the connector has **DP** and **DN**, 
 
 To connect them, simply **copy the DP and DN net labels** you placed on the USB-C connector earlier and **paste them onto the corresponding DP and DM pins on the IC**. This way, the upstream port is properly wired without any messy wires running across the schematic.
 
-![[20260214-1504-51.1439583.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F85fd0bc8_image.gif)
 
 Finally, let’s connect the **downstream data ports**.
 
 For each of the DPx/DMx pins on the IC, create **net labels** just like we did for the upstream port.
 
-![[Pasted image 20260214100756.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Febccbdac_image.png)
 
 Once that’s done, connect each net label to the data pins of one of your four downstream USB connectors. Remember: **each data pair goes to only one USB port!** don’t share a pair between multiple connectors.
 
-![[Pasted image 20260214100827.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F7c850bb4_image.png)
 
 
 
@@ -241,7 +241,7 @@ So for each downstream USB-C port, place a **5.1 kΩ resistor** on the CC1 and
 
 If you’ve followed all these steps, your schematic should now look clean and complete, with all power, data, and control signals properly connected.
 
-![[Pasted image 20260214104316.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F596a404b_image.png)
 
 
 We’re almost done! The last little piece to add is **capacitors**, specifically **decoupling capacitors**.
@@ -250,26 +250,26 @@ Capacitors do two main things: they **store energy** and they **let high-frequen
 
 For this project, place **1 µF capacitors** between **VBUS** (or VCC) and **GND** on each USB connector. This ensures each port gets clean, steady power and keeps the hub running reliably.
 
-![[Pasted image 20260214105108.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2Fd038f00c_image.png)
 
 
-![[20260214-1514-49.5052245.gif]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F7ad26ba7_image.gif)
 
 Basically, each decoupling capacitor will have **one end connected to the power pin** and the **other end connected to ground**.
 
 A little schematic etiquette tip: **power flags should point up** and **ground flags should point down**. To keep things tidy, place your decoupling capacitors following this convention, power end toward the +5 V flag and ground end toward the GND flag. This makes the schematic easier to read and visually consistent.
 
-![[Pasted image 20260214104347.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F732393b9_image.png)
 
 For the IC’s internal supply pins, **VDD33** (3.3 V) and **VDD18** (1.8 V), we’ll add **two capacitors each**: a **1 µF** and a **100 nF**. Both act as decoupling capacitors, but the smaller **100 nF capacitor reacts faster** to sudden voltage spikes, making it great for filtering high-frequency noise.
 
 We’ll do the same thing for the **VDD5** pin: a 1 µF and a 100 nF capacitor to ground. This keeps all the IC’s power rails clean and stable, ensuring reliable operation of the hub.
 
-![[Pasted image 20260214101922.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F05af01d6_image.png)
 
 Here’s roughly what your completed schematic should look like at the end: all power rails, ground connections, data lines, pull-up/pull-down resistors, and decoupling capacitors in place, with clean left-to-right flow from the upstream port through the IC to the downstream ports. Everything should be neatly labeled and easy to read, ready for the PCB stage.
 
-![[Pasted image 20260214104404.png]]
+![](https://cdn.2008000.xyz/cdn/14-02-2026%2F9ed1103d_image.png)
 
 
 And just like that, **schematics complete!** :D
