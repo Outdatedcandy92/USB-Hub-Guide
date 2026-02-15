@@ -1,7 +1,7 @@
 # USB Hub Guide
 
-- [Getting Started](EasyEDA Tutorial)
-- [Schematics](Schematics)
-- [PCB](PCB)
+- [Getting Started](./EasyEDA%20Tuorial.md)
+- [Schematics](./Schematics.md)
+- [PCB](./PCB.md)
 	- [Custom Shapes (Coming soon)]()
 - [Ordering (coming soon)]()
