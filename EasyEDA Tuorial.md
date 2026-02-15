@@ -110,4 +110,4 @@ Here’s a quick illustration to help you picture how these layers are stacked t
 
 ---
 
-Now that you understand the basics and feel comfortable navigating EasyEDA, it’s time to put that knowledge into practice. [Let’s build a USB hub!](Schematics)
+Now that you understand the basics and feel comfortable navigating EasyEDA, it’s time to put that knowledge into practice. [Let’s build a USB hub!](./Schematics.md)

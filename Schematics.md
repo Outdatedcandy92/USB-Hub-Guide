@@ -272,7 +272,7 @@ Here’s roughly what your completed schematic should look like at the end: all 
 
 And just like that, **schematics complete!** :D
 
-Don’t forget to **save your work** by pressing `Ctrl + S` so all your hard work is safe. Your USB hub is now fully laid out on paper, ready for the next step: [designing the PCB.](PCB)
+Don’t forget to **save your work** by pressing `Ctrl + S` so all your hard work is safe. Your USB hub is now fully laid out on paper, ready for the next step: [designing the PCB.](./PCB.md)
 
 
 
