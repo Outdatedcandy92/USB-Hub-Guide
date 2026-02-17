@@ -19,7 +19,7 @@ To do this, go to the left sidebar and open the **Net** tab. Expand the **Ratlin
 
 ![](attachments/20260215-0123-23.5098350.gif)
 
-
+---
 ## Planning it out
 
 Now hold on. Before you start routing traces everywhere, you need to place your components properly.
@@ -28,7 +28,7 @@ Good layout starts with intention. Take a moment and think about what you actual
 
 This is your project. Give it some personality. Maybe it’s a fun shape. Maybe it’s something you can turn into a keychain. Maybe it’s completely ridiculous in the best possible way. I’m turning mine into a small keychain shaped board, but you’re absolutely encouraged to design something wild.
 
-If you want to go further and experiment with more advanced outlines, like silhouettes or detailed drawings, check out the little side guide on creating [custom board shapes](soon). You can get surprisingly creative with PCB outlines.
+If you want to go further and experiment with more advanced outlines, like silhouettes or detailed drawings, check out the little side guide on creating [custom board shapes](./Custom%20Shapes.md). You can get surprisingly creative with PCB outlines.
 
 Personally, I’m aiming for something that looks a bit like this…
 
@@ -113,6 +113,7 @@ In the end, your board should look something like this. Every power pin should h
 
 ![](attachments/Pasted%20image%2020260215122404.png)
 
+---
 ## Routing 
 
 Now we move on to the fun and satisfying part: routing! To start, you can use the **Routing** tool on the top bar or just hit **Alt + W**.
@@ -188,9 +189,97 @@ Now let’s jump into the 3D viewer and take a look at how our board is looking!
 
 Looking pretty sick!
 
-At this point, you’re basically done and could go ahead and [order your board](soon). But if you want to add some extra style, keep reading this guide.
+At this point, you’re basically done and could go ahead and [order your board](./Ordering.md). But if you want to add some extra style, keep reading this guide.
 
-## Blinging it out
+---
+## Adding a keychain slot
 
-coming soon tm
+At the beginning when I was planning out layout, I sketched a small hole in the PCB so it could double as a keychain. Now it’s time to actually add that slot to the board. If you are not into the keychain idea, you can still add mounting holes, which I highly recommend. If you ever decide to design an enclosure later, mounting holes make it much easier to screw the board into a case and keep everything secure.
 
+To add a slot, head to the top toolbar and choose the slot region tool. Draw a small rectangle where you want it, then tweak the position until it looks right.
+
+![](attachments/20260216-1813-24.8146150.gif)
+
+After that, just fine tune the size and make sure it is not too close to the edge or any components.
+
+![](attachments/20260216-1814-24.9924495.gif)
+
+Now if you open the 3D viewer again, you’ll see your updated PCB with the slot in place.
+
+![](attachments/20260216-1815-36.9776924.gif)
+
+If you are not into the keychain idea but think you might design a case later, I strongly recommend adding mounting holes. The process is almost the same, except this time you choose a circle instead of a slot from the same tool menu.
+
+When you place it, you will need to enter a radius. That value depends on the screw you plan to use, such as M2, M2.5, or M3. The M number refers to the screw’s diameter in millimeters, so an M2 screw has a 2 mm diameter. If you are using M2 screws for mounting, setting the radius to about 1.1 mm is a good choice.
+
+![](attachments/20260216-1816-58.7933093.gif)
+
+At a minimum, I suggest adding at least two mounting holes, but if you have the space, four is even better. For placement, spread them out and choose strategic positions. In my case, these spots would make the most sense if I were adding mounting holes.
+
+![](attachments/Pasted%20image%2020260216132008.png)
+
+---
+## Silkscreen
+
+Now what is a PCB without some funky, cool silkscreen on it? As mentioned earlier, silkscreen is the layer printed on top of the solder mask. It is used for reference designators like C1 and C2, along with all the yellow markings you see on the board.
+
+![](attachments/Pasted%20image%2020260216132138.png)
+
+But you can also add your own text and illustrations to give it a little personality.
+
+To do that, select the top silkscreen layer, choose the text tool, type in whatever you like, and place it on the board.
+
+![](attachments/20260216-1825-11.7230639.gif)
+
+Custom text is fun, but adding your own graphics is even better. To do that, go to File → Import → Image and select the image you want to use. Remember that silkscreen is a single color, so it is best to choose an image that is already black and white. If you import something with lots of color, the EDA tool will convert it to black and white automatically, which can sometimes create strange artifacts.
+
+I am going to place an image of Orpheus on the front. When inserting the image, start with a small size, around 20 mm wide or so. You can always resize it later, but starting smaller makes it easier to position and fine tune.
+
+![](attachments/20260216-1829-18.6244182.gif)
+
+Make sure your silkscreen does not overlap with any other silkscreen in the area, and you should be good to go.
+
+Open the 3D viewer to check out your new silkscreen design and see how it looks on the board.
+
+![](attachments/20260216-2355-39.0515505.gif)
+
+If you peek in the 3D viewer, you’ll notice the back side is basically empty with no graphics. Let’s fix that. Go back into the PCB editor, select the bottom silkscreen layer, and add some designs to it.
+
+![](attachments/20260216-2357-49.3142817.gif)
+
+You’ll notice that everything you add looks reversed. That’s because it’s the back side. To fix it, use the flip board tool on the top toolbar to turn the board around.
+
+![](attachments/20260216-2358-49.6524352.gif)
+
+Now I’ll follow the same steps I used for the top layer and add some designs to the bottom. Once I’m done, I end up with something pretty cool like this.
+
+![](attachments/Pasted%20image%2020260216190933.png)
+
+![](attachments/20260217-0009-59.5174061.gif)
+
+---
+## Polishing 
+
+Before we order our boards, there are a few small touches you can add to make them look more polished, like filleting the edges.
+
+Filleting rounds off the edges. By default, PCBs have sharp corners, which not only look harsh but can actually poke you.
+
+To fillet your board outline, select it, right-click, choose Add → Fillet, and set the radius to whatever you like. I’m going with 2 mm.
+
+![](attachments/20260217-0012-06.5848408.gif)
+
+I’ll also add some fillets to the slot on my board.
+
+![](attachments/20260217-0013-04.5421053.gif)
+
+Remember to always rebuild your zones by pressing Shift+B.
+
+![](attachments/20260217-0014-20.9411084.gif)
+
+Notice how much cleaner our board looks now!
+
+![](attachments/Pasted%20image%2020260216191609.png)
+
+---
+
+At this point you're done with your board! You can now go ahead and [order it using JLC!](./Ordering.md)
