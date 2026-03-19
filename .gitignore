@@ -1,0 +1,6 @@
+__pycache__/
+venv/
+test.py
+attachments/
+attachmentscompressed/.optimization_manifest.json
+attachmentscompressed/.markdown_backups/
