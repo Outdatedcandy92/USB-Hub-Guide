@@ -15,4 +15,4 @@ By the end of this guide, you’ll have designed a USB hub that looks something 
 	- [Custom Shapes](./Custom%20Shapes.md)
 - [Ordering](./Ordering.md)
 
-Many of the media files in this guide (like `.webm` videos) don’t render on GitHub. To get the full experience and follow along smoothly, I recommend using my [website](https://rudymakes.com/blog/usb-hub).
+>Many of the media files in this guide (like `.webm` videos) don’t render on GitHub. To get the full experience and follow along smoothly, I recommend using my [website](https://rudymakes.com/blog/usb-hub).
