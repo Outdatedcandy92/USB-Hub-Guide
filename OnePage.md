@@ -347,15 +347,15 @@ Next, finish wiring the remaining pins on your downstream USB connectors.
 
 - **GND** and **SH** (shield) connect to **GND**.
 
-- For USB-C downstream ports, wire them the same way as the upstream port, **except** you’ll need to add **5.1 kΩ pull-up resistors on the CC pins** instead of pull-downs.
+- For USB-C downstream ports, wire them the same way as the upstream port, **except** you’ll need to add **56kΩ pull-up resistors on the CC pins** instead of pull-downs.
 
 For the USB-C downstream ports, the **CC pins** use **pull-up resistors** instead of pull-downs. The standard way to show a pull-up in a schematic is to have the resistor **pointing up** toward the voltage supply.
 
-So for each downstream USB-C port, place a **5.1 kΩ resistor** on the CC1 and CC2 pins, orient it pointing up, and wire the other end to **+5 V**. 
+So for each downstream USB-C port, place a **56 kΩ resistor** on the CC1 and CC2 pins, orient it pointing up, and wire the other end to **+5 V**. 
 
 If you’ve followed all these steps, your schematic should now look clean and complete, with all power, data, and control signals properly connected.
 
-![img](attachmentscompressed/Pasted%20image%2020260214142839.webp)
+![](attachmentscompressed/zen_FFMfDI7HfY.webp)
 
 
 We’re almost done! The last little piece to add is **capacitors**, specifically **decoupling capacitors**.
@@ -373,7 +373,7 @@ Basically, each decoupling capacitor will have **one end connected to the power 
 
 A little schematic etiquette tip: **power flags should point up** and **ground flags should point down**. To keep things tidy, place your decoupling capacitors following this convention, power end toward the +5 V flag and ground end toward the GND flag. This makes the schematic easier to read and visually consistent.
 
-![img](attachmentscompressed/Pasted%20image%2020260214143138.webp)
+![](attachmentscompressed/zen_At1Ew0Cgyv%201.webp)
 
 For the IC’s internal supply pins, **VDD33** (3.3 V) and **VDD18** (1.8 V), we’ll add **two capacitors each**: a **1 µF** and a **100 nF**. Both act as decoupling capacitors, but the smaller **100 nF capacitor reacts faster** to sudden voltage spikes, making it great for filtering high-frequency noise.
 
@@ -383,7 +383,7 @@ We’ll do the same thing for the **VDD5** pin: a 1 µF and a 100 nF capacit
 
 Here’s roughly what your completed schematic should look like at the end: all power rails, ground connections, data lines, pull-up/pull-down resistors, and decoupling capacitors in place, with clean left-to-right flow from the upstream port through the IC to the downstream ports. Everything should be neatly labeled and easy to read, ready for the PCB stage.
 
-![img](attachmentscompressed/Pasted%20image%2020260214143300.webp)
+![](attachmentscompressed/zen_nKM5G6KMHf.webp)
 
 
 And just like that, **schematics complete!** :D
