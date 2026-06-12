@@ -235,11 +235,11 @@ Next, finish wiring the remaining pins on your downstream USB connectors.
 
 For the USB-C downstream ports, the **CC pins** use **pull-up resistors** instead of pull-downs. The standard way to show a pull-up in a schematic is to have the resistor **pointing up** toward the voltage supply.
 
-So for each downstream USB-C port, place a **5.1 kΩ resistor** on the CC1 and CC2 pins, orient it pointing up, and wire the other end to **+5 V**. 
+So for each downstream USB-C port, place a **56 kΩ resistor** on the CC1 and CC2 pins, orient it pointing up, and wire the other end to **+5 V**. 
 
 If you’ve followed all these steps, your schematic should now look clean and complete, with all power, data, and control signals properly connected.
 
-![img](attachmentscompressed/Pasted%20image%2020260214142839.webp)
+![](attachmentscompressed/zen_FFMfDI7HfY.webp)
 
 
 We’re almost done! The last little piece to add is **capacitors**, specifically **decoupling capacitors**.
